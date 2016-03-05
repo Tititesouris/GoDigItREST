@@ -22,5 +22,5 @@ switch($method) {
         echo json_encode((new \Pages\Digs())->DELETE($parameters));
         break;
     default:
-        http_response_code(400);
+        echo json_encode((new \Pages\Digs())->OTHER());
 }
