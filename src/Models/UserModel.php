@@ -5,7 +5,7 @@ namespace Models;
 class UserModel extends AbstractModel
 {
 
-    private $name;
+    private $username;
 
     private $email;
 
@@ -14,19 +14,19 @@ class UserModel extends AbstractModel
     public function __construct($id, $name, $email, $password)
     {
         parent::__construct($id);
-        $this->name = $name;
+        $this->username = $name;
         $this->email = $email;
         $this->password = $password;
     }
 
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
     }
 
     public function getEmail()
@@ -53,7 +53,7 @@ class UserModel extends AbstractModel
     {
         return array(
             "id" => $this->id,
-            "name" => $this->name,
+            "username" => $this->username,
             "email" => $this->email,
             "password" => $this->password
         );

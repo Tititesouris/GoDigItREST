@@ -21,16 +21,16 @@ class Users extends RESTObject
 
     public function POST($parameters)
     {
-        if (!empty($parameters) && isset($parameters["name"], $parameters["email"], $parameters["password"])) {
-            return UsersTable::addUser(new UserModel(6, $parameters["name"], $parameters["email"], $parameters["password"]));
+        if (!empty($parameters) && isset($parameters["username"], $parameters["email"], $parameters["password"])) {
+            return UsersTable::addUser(new UserModel(6, $parameters["username"], $parameters["email"], $parameters["password"]));
         }
         return array("error" => "Invalid parameters");
     }
 
     public function PUT($parameters)
     {
-        if (!empty($parameters) && isset($parameters["id"], $parameters["name"], $parameters["email"], $parameters["password"])) {
-            return UsersTable::setUser($parameters["id"], new UserModel($parameters["id"], $parameters["name"], $parameters["email"], $parameters["password"]));
+        if (!empty($parameters) && isset($parameters["id"], $parameters["username"], $parameters["email"], $parameters["password"])) {
+            return UsersTable::setUser($parameters["id"], new UserModel($parameters["id"], $parameters["username"], $parameters["email"], $parameters["password"]));
         }
         return array("error" => "Invalid parameters");
     }

@@ -23,5 +23,5 @@ switch($method) {
         echo json_encode((new \Pages\Users())->DELETE($parameters));
         break;
     default:
-        echo json_encode((new \Pages\Users())->OTHER());
+        http_response_code(400);
 }

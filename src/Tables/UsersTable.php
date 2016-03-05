@@ -20,12 +20,12 @@ class UsersTable
 
     public static function addUser(UserModel $user)
     {
-        return (new UserModel($user->getId(), $user->getName(), $user->getEmail(), $user->getPassword()))->toArray();
+        return (new UserModel($user->getId(), $user->getUsername(), $user->getEmail(), $user->getPassword()))->toArray();
     }
 
     public static function setUser($id, UserModel $user)
     {
-        return (new UserModel($user->getId(), $user->getName(), $user->getEmail(), $user->getPassword()))->toArray();
+        return (new UserModel($user->getId(), $user->getUsername(), $user->getEmail(), $user->getPassword()))->toArray();
     }
 
     public static function removeUser($id) {
