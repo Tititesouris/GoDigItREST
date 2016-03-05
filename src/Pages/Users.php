@@ -2,6 +2,7 @@
 
 namespace Pages;
 
+use Models\UserModel;
 use Tables\UsersTable;
 
 class Users extends RESTObject
@@ -20,19 +21,25 @@ class Users extends RESTObject
 
     public function POST($parameters)
     {
-        // TODO: Implement POST() method.
+        if (!empty($parameters) && isset($parameters["name"], $parameters["email"], $parameters["password"])) {
+            return UsersTable::addUser(new UserModel(6, $parameters["name"], $parameters["email"], $parameters["password"]));
+        }
         return array("error" => "Invalid parameters");
     }
 
     public function PUT($parameters)
     {
-        // TODO: Implement PUT() method.
+        if (!empty($parameters) && isset($parameters["id"], $parameters["name"], $parameters["email"], $parameters["password"])) {
+            return UsersTable::setUser($parameters["id"], new UserModel($parameters["id"], $parameters["name"], $parameters["email"], $parameters["password"]));
+        }
         return array("error" => "Invalid parameters");
     }
 
     public function DELETE($parameters)
     {
-        // TODO: Implement DELETE() method.
+        if (!empty($parameters) && isset($parameters["id"])) {
+            return UsersTable::removeUser($parameters["id"]);
+        }
         return array("error" => "Invalid parameters");
     }
 
