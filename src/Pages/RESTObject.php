@@ -12,4 +12,8 @@ abstract class RESTObject
 
     public abstract function DELETE($parameters);
 
+    public function OTHER() {
+        return false;
+    }
+
 }

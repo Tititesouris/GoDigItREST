@@ -8,17 +8,17 @@ $method = $_SERVER["REQUEST_METHOD"];
 var_dump($method);
 switch($method) {
     case "GET":
-        var_dump(new \Pages\Digs($_GET));
+        var_dump((new \Pages\Digs())->GET($_GET));
         break;
     case "POST":
-        // $_POST;
+        var_dump((new \Pages\Digs())->POST($_POST));
         break;
     case "PUT":
-        // parse_str(file_get_contents("php://input"), $parameters);
+        var_dump((new \Pages\Digs())->PUT(file_get_contents("php://input")));
         break;
     case "DELETE":
-        // parse_str(file_get_contents("php://input"), $parameters);
+        var_dump((new \Pages\Digs())->DELETE(file_get_contents("php://input")));
         break;
     default:
-        echo "ERROR";
+        var_dump((new \Pages\Digs())->OTHER());
 }

@@ -19,8 +19,16 @@ class DigsTable
         );
     }
 
-    public static function addDig($dig) {
+    public static function addDig(DigModel $dig) {
+        return new DigModel($dig->getId(), $dig->getLat(), $dig->getLong(), $dig->getAlt(), $dig->getName(), $dig->getQrcode(), $dig->getBudget());
+    }
 
+    public static function setDig($id, DigModel $dig) {
+        return new DigModel($dig->getId(), $dig->getLat(), $dig->getLong(), $dig->getAlt(), $dig->getName(), $dig->getQrcode(), $dig->getBudget());
+    }
+
+    public static function removeDig($id) {
+        return new DigModel($id, null, null, null, null, null, null);
     }
 
 }

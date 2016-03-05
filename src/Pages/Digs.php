@@ -1,6 +1,7 @@
 <?php
 namespace Pages;
 
+use Models\DigModel;
 use Tables\DigsTable;
 
 class Digs extends RESTObject
@@ -19,17 +20,26 @@ class Digs extends RESTObject
 
     public function POST($parameters)
     {
-        // TODO: Implement POST() method.
+        if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
+            return DigsTable::addDig(new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
+        }
+        return false;
     }
 
     public function PUT($parameters)
     {
-        // TODO: Implement PUT() method.
+        if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
+            return DigsTable::setDig($parameters["id"], new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
+        }
+        return false;
     }
 
     public function DELETE($parameters)
     {
-        // TODO: Implement DELETE() method.
+        if (!empty($parameters) && isset($parameters["id"])) {
+            return DigsTable::removeDig($parameters["id"]);
+        }
+        return false;
     }
 
 }
