@@ -18,14 +18,15 @@ class Database
     {
         $db = Database::getConnection();
         $stmt = $db->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+        ret = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($ret);
     }
     
     public static function fetchOne($sql)
     {
         $db = Database::getConnection();
         $stmt = $db->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        $ret = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        var_dump($ret);
     }
 }

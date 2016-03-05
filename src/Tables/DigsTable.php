@@ -9,7 +9,7 @@ class DigsTable
 {
     public static function getAllDigs() 
     {
-        var_dump(Database::fetchAll("SELECT * FROM digs"));
+        //var_dump(Database::fetchAll("SELECT * FROM digs"));
         
         $ret = array();
         foreach(Database::fetchAll("SELECT * FROM digs") as $row)
@@ -24,9 +24,10 @@ class DigsTable
     }
 
     public static function getDig($id) {
-        return array(
+        return Database::fetchOne("SELECT * FROM digs WHERE id=" . $id);
+        /*return array(
             (new DigModel($id, 2, 3, 5, "Test", "dsadasdsadada", 0, false, false, false))->toArray()
-        );
+        );*/
     }
 
     public static function addDig(DigModel $dig) {
