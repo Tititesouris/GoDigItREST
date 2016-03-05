@@ -15,7 +15,7 @@ class Digs extends RESTObject
         elseif (isset($parameters["id"])) {
             return DigsTable::getDig($parameters["id"]);
         }
-        return false;
+        return array("error" => "Invalid parameters");
     }
 
     public function POST($parameters)
@@ -23,7 +23,7 @@ class Digs extends RESTObject
         if (!empty($parameters) && isset($parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
             return DigsTable::addDig(new DigModel(6, $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
         }
-        return false;
+        return array("error" => "Invalid parameters");
     }
 
     public function PUT($parameters)
@@ -31,7 +31,7 @@ class Digs extends RESTObject
         if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
             return DigsTable::setDig($parameters["id"], new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
         }
-        return false;
+        return array("error" => "Invalid parameters");
     }
 
     public function DELETE($parameters)
@@ -39,7 +39,7 @@ class Digs extends RESTObject
         if (!empty($parameters) && isset($parameters["id"])) {
             return DigsTable::removeDig($parameters["id"]);
         }
-        return false;
+        return array("error" => "Invalid parameters");
     }
 
 }
