@@ -5,7 +5,7 @@ namespace Pages;
 use Models\UserModel;
 use Tables\UsersTable;
 
-class Users extends RESTObject
+class Users extends Page
 {
 
     public function GET($parameters)
