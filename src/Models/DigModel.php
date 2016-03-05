@@ -1,6 +1,7 @@
 <?php
+namespace Models;
 
-class Dig
+class DigModel
 {
     private $id;
 

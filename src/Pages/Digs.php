@@ -1,11 +1,12 @@
 <?php
-include_once "RESTObject.php";
-include_once "tables/DigsTable.php";
+namespace Pages;
+
+use Tables\DigsTable;
 
 class Digs extends RESTObject
 {
 
-    public static function GET($parameters)
+    public function GET($parameters)
     {
         if (empty($parameters)) {
             return DigsTable::getAllDigs();
@@ -16,17 +17,17 @@ class Digs extends RESTObject
         return false;
     }
 
-    public static function POST($parameters)
+    public function POST($parameters)
     {
         // TODO: Implement POST() method.
     }
 
-    public static function PUT($parameters)
+    public function PUT($parameters)
     {
         // TODO: Implement PUT() method.
     }
 
-    public static function DELETE($parameters)
+    public function DELETE($parameters)
     {
         // TODO: Implement DELETE() method.
     }

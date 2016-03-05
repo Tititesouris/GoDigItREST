@@ -1,0 +1,17 @@
+{
+  "name": "GoDigIt",
+  "description": "Go Dig It!",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Team 1066",
+      "email": "support@godigit.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  }
+}

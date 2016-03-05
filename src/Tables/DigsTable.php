@@ -1,5 +1,8 @@
 <?php
-include_once("models/DigModel.php");
+
+namespace Tables;
+
+use Models\DigModel;
 
 class DigsTable
 {
