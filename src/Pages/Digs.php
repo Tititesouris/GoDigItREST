@@ -20,8 +20,8 @@ class Digs extends RESTObject
 
     public function POST($parameters)
     {
-        if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
-            return DigsTable::addDig(new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
+        if (!empty($parameters) && isset($parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
+            return DigsTable::addDig(new DigModel(6, $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
         }
         return false;
     }

@@ -14,10 +14,12 @@ switch($method) {
         echo json_encode((new \Pages\Digs())->POST($_POST));
         break;
     case "PUT":
-        echo json_encode((new \Pages\Digs())->PUT(file_get_contents("php://input")));
+        parse_str(file_get_contents("php://input"), $parameters);
+        echo json_encode((new \Pages\Digs())->PUT($parameters));
         break;
     case "DELETE":
-        echo json_encode((new \Pages\Digs())->DELETE(file_get_contents("php://input")));
+        parse_str(file_get_contents("php://input"), $parameters);
+        echo json_encode((new \Pages\Digs())->DELETE($parameters));
         break;
     default:
         echo json_encode((new \Pages\Digs())->OTHER());
