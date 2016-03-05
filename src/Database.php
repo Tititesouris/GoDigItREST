@@ -8,7 +8,7 @@ class Database
     {
         if (!isset($connection))
         {
-            $connection = new PDO('mysql:host=localhost;dbname=godigit;charset=utf8mb4', 'godigit-user', 'swordfish'); 
+            $connection = new PDO("mysql:host=localhost;dbname=godigit;charset=utf8mb4", "godigit-user", "swordfish");
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return $connection;
@@ -18,15 +18,15 @@ class Database
     {
         $db = Database::getConnection();
         $stmt = $db->query($sql);
-        ret = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($ret);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
     }
     
     public static function fetchOne($sql)
     {
         $db = Database::getConnection();
         $stmt = $db->query($sql);
-        $ret = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
-        var_dump($ret);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        return $row;
     }
 }

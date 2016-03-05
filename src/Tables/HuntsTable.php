@@ -2,38 +2,42 @@
 
 namespace Tables;
 
+use Database;
 use Models\HuntModel;
 
 class HuntsTable
 {
     public static function getAllHunts() {
-        return array(
-            (new HuntModel(1, "Test", "r4nd0mqrc0d3", array("What", "is", "love"), "Get some change with you", 7))->toArray(),
-            (new HuntModel(1, "Test", "r4nd0mqrc0d3", array("What", "is", "love"), "Get some change with you", 7))->toArray(),
-        );
+        $hunts = array();
+        foreach(Database::fetchAll("SELECT id, name, qrcode, clue1, clue2, clue3, comments, puzzle_id FROM hunts") as $hunt)
+        {
+            $hunts[] = (new HuntModel($hunt["id"], $hunt["name"], $hunt["qrcode"], array($hunt["clue1"], $hunt["clue2"], $hunt["clue3"]), $hunt["comments"], PuzzlesTable::getPuzzle($hunt["puzzle_id"])))->toArray();
+        }
+        return $hunts;
     }
 
     public static function getHunt($id) {
-        return false;
+        $hunt = Database::fetchOne("SELECT id, name, qrcode, clue1, clue2, clue3, comments, puzzle_id FROM hunts WHERE id=".$id);
+        return (new HuntModel($hunt["id"], $hunt["name"], $hunt["qrcode"], array($hunt["clue1"], $hunt["clue2"], $hunt["clue3"]), $hunt["comments"], PuzzlesTable::getPuzzle($hunt["puzzle_id"])))->toArray();
     }
 
     public static function getHuntByQRCode($QRCode) {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function addHunt(HuntModel $dig)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function setHunt($id, HuntModel $dig)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function removeHunt($id)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
 }

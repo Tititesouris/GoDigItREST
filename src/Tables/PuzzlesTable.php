@@ -9,30 +9,30 @@ class PuzzlesTable
 {
 
     public static function getAllPuzzles() {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function getPuzzle($id) {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function getPuzzleByQRCode($QRCode) {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function addPuzzle(PuzzleModel $puzzle)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function setPuzzle($id, PuzzleModel $puzzle)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
     public static function removePuzzle($id)
     {
-        return false;
+        return array("error" => "Not Implemented yet");;
     }
 
 }
