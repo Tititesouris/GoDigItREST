@@ -1,9 +1,8 @@
 <?php
 namespace Models;
 
-class DigModel
+class DigModel extends AbstractModel
 {
-    private $id;
 
     private $long;
 
@@ -19,23 +18,13 @@ class DigModel
 
     public function __construct($id, $long, $lat, $alt, $name, $qrcode, $budget)
     {
-        $this->id = $id;
+        parent::__construct($id);
         $this->long = $long;
         $this->lat = $lat;
         $this->alt = $alt;
         $this->name = $name;
         $this->qrcode = $qrcode;
         $this->budget = $budget;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     public function getLong()
@@ -96,6 +85,18 @@ class DigModel
     public function setBudget($budget)
     {
         $this->budget = $budget;
+    }
+
+    public function toArray() {
+        return array(
+            "id" => $this->id,
+            "long" => $this->long,
+            "lat" => $this->lat,
+            "alt" => $this->alt,
+            "name" => $this->name,
+            "qrcode" => $this->qrcode,
+            "budget" => $this->budget
+        );
     }
 
 }
