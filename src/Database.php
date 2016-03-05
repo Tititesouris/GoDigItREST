@@ -29,4 +29,11 @@ class Database
         $row = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         return $row;
     }
+    
+    public static function exec($sql)
+    {
+        $db = Database::getConnection();
+        $affected = $db->exec($sql);
+        return $affected;
+    }
 }

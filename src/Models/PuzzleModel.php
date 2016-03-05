@@ -4,7 +4,6 @@ namespace Models;
 
 class PuzzleModel extends AbstractModel
 {
-
     private $name;
 
     private $description;
@@ -14,6 +13,16 @@ class PuzzleModel extends AbstractModel
     private $latitude;
 
     private $longitude;
+    
+    public function __construct($id, $name, $description, $QRCode, $latitude, $longitude)
+    {
+        parent::__construct($id);
+        $this->name = $name;
+        $this->description = $description;
+        $this->QRCode = $QRCode;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+    }
 
     public function toArray()
     {
