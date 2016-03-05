@@ -16,6 +16,9 @@ class Users extends RESTObject
         elseif (isset($parameters["id"])) {
             return UsersTable::getUser($parameters["id"]);
         }
+        elseif (isset($parameters["username"])) {
+            return UsersTable::getUserByName($parameters["username"]);
+        }
         return array("error" => "Invalid parameters");
     }
 
@@ -29,8 +32,8 @@ class Users extends RESTObject
 
     public function PUT($parameters)
     {
-        if (!empty($parameters) && isset($parameters["id"], $parameters["username"], $parameters["email"], $parameters["password"])) {
-            return UsersTable::setUser($parameters["id"], new UserModel($parameters["id"], $parameters["username"], $parameters["email"], $parameters["password"]));
+        if (!empty($parameters) && isset($parameters["username"], $parameters["email"], $parameters["password"])) {
+            return UsersTable::setUser($parameters["username"], new UserModel(0, $parameters["username"], $parameters["email"], $parameters["password"]));
         }
         return array("error" => "Invalid parameters");
     }

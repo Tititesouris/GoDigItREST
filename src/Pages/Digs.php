@@ -20,16 +20,16 @@ class Digs extends RESTObject
 
     public function POST($parameters)
     {
-        if (!empty($parameters) && isset($parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
-            return DigsTable::addDig(new DigModel(6, $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
+        if (!empty($parameters) && isset($parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"], $parameters["placed"], $parameters["found"], $parameters["solved"])) {
+            return DigsTable::addDig(new DigModel(6, $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"], $parameters["placed"], $parameters["found"], $parameters["solved"]));
         }
         return array("error" => "Invalid parameters");
     }
 
     public function PUT($parameters)
     {
-        if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"])) {
-            return DigsTable::setDig($parameters["id"], new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"]));
+        if (!empty($parameters) && isset($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"], $parameters["placed"], $parameters["found"], $parameters["solved"])) {
+            return DigsTable::setDig($parameters["id"], new DigModel($parameters["id"], $parameters["long"], $parameters["lat"], $parameters["alt"], $parameters["name"], $parameters["qrcode"], $parameters["budget"], $parameters["placed"], $parameters["found"], $parameters["solved"]));
         }
         return array("error" => "Invalid parameters");
     }

@@ -18,12 +18,16 @@ class UsersTable
         return (new UserModel($id, "Quentin Brault", "bloop@gmail.com", "password"))->toArray();
     }
 
+    public static function getUserByName($username) {
+        return (new UserModel(0, $username, "bloop@gmail.com", "password"))->toArray();
+    }
+
     public static function addUser(UserModel $user)
     {
         return (new UserModel($user->getId(), $user->getUsername(), $user->getEmail(), $user->getPassword()))->toArray();
     }
 
-    public static function setUser($id, UserModel $user)
+    public static function setUser($username, UserModel $user)
     {
         return (new UserModel($user->getId(), $user->getUsername(), $user->getEmail(), $user->getPassword()))->toArray();
     }
