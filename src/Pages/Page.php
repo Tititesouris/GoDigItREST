@@ -1,7 +1,7 @@
 <?php
 namespace Pages;
 
-abstract class RESTObject
+abstract class Page
 {
 
     public abstract function GET($parameters);
