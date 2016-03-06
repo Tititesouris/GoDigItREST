@@ -33,7 +33,7 @@ class PuzzlesTable
 
     public static function addPuzzle(PuzzleModel $puzzle)
     {
-        $result = Database::exec("INSERT INTO puzzles(name, description, qr_code, latitude, longitude, id) VALUES('".$puzzle->getName()."','".$puzzle->getDescription()."','".$puzzle->getQRCode()."','".$puzzle->getLatitude()."','".$puzzle->getLongitude()."','".$puzzle->getId()."')");
+        $result = Database::exec("INSERT INTO puzzles(name, description, qr_code, latitude, longitude) VALUES('".$puzzle->getName()."','".$puzzle->getDescription()."','".$puzzle->getQRCode()."','".$puzzle->getLatitude()."','".$puzzle->getLongitude()."')");
         return array("name" => $puzzle->getName());
     }
 

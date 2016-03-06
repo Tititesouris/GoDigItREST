@@ -28,7 +28,7 @@ class HuntsTable
 
     public static function addHunt(HuntModel $dig)
     {
-        $result = Database::exec("INSERT INTO hunts(id, name, qr_code, clue1, clue2, clue3, comments, puzzle_id) VALUES(".$dig->getId().",".$dig->getName().",".$dig->getQRCode().",".$dig->getClues()[0].",".$dig->getClues()[1].",".$dig->getClues()[2].",".$dig->getComments().",".$dig->getPuzzle()->getId().")");
+        $result = Database::exec("INSERT INTO hunts( name, clue1, clue2, clue3, comments, puzzle_id) VALUES(".$dig->getName().",".$dig->getClues()[0].",".$dig->getClues()[1].",".$dig->getClues()[2].",".$dig->getComments().",".$dig->getPuzzle()->getId().")");
         return len($result) > 0;
         //return array("error" => "Not Implemented yet");
     }
