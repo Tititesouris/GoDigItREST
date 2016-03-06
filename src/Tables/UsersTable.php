@@ -30,14 +30,14 @@ class UsersTable
     public static function addUser(UserModel $user)
     {
         $result = Database::exec("INSERT INTO users(name, email, password_hash) VALUES('".$user->getUsername()."','".$user->getEmail()."','".$user->getPassword()."')");
-        return count($result) > 0;
+        return array("username" => $user->getUsername());
 //         return array("error" => "Not Implemented yet");
     }
 
     public static function setUser($username, UserModel $user)
     {
         $result = Database::exec("UPDATE users SET name='".$user->getUsername()."',email='".$user->getEmail()."',password_hash='".$user->getPassword()."' WHERE name='".$username."'");
-        return json_encode($result);
+        return array("username" => $username);
 //         return array("error" => "Not Implemented yet");
     }
 
