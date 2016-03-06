@@ -24,7 +24,7 @@ class Hunts extends Page
     public function POST($parameters)
     {
         if (!empty($parameters) && isset($parameters["name"],/* $parameters["qrcode"],*/ $parameters["clue1"], $parameters["clue2"], $parameters["clue3"], $parameters["comments"], $parameters["puzzle_id"])) {
-            return HuntsTable::addHunt(new HuntModel(6, $parameters["name"], $parameters["qrcode"], array($parameters["clue1"], $parameters["clue2"], $parameters["clue3"]), $parameters["comments"], $parameters["puzzle_id"]));
+            return HuntsTable::addHunt(new HuntModel(6, $parameters["name"],/* $parameters["qrcode"], */array($parameters["clue1"], $parameters["clue2"], $parameters["clue3"]), $parameters["comments"], $parameters["puzzle_id"]));
         }
         return array("error" => "Invalid parameters", "parameters");
     }
