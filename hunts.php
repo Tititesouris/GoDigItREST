@@ -8,19 +8,19 @@ $method = $_SERVER["REQUEST_METHOD"];
 
 switch($method) {
     case "GET":
-        echo json_encode((new \Pages\Digs())->GET($_GET));
+        echo json_encode((new \Pages\Hunts())->GET($_GET));
         break;
     case "POST":
-        echo json_encode((new \Pages\Digs())->POST($_POST));
+        echo json_encode((new \Pages\Hunts())->POST($_POST));
         break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $parameters);
-        echo json_encode((new \Pages\Digs())->PUT($parameters));
+        echo json_encode((new \Pages\Hunts())->PUT($parameters));
         break;
     case "DELETE":
         parse_str(file_get_contents("php://input"), $parameters);
-        echo json_encode((new \Pages\Digs())->DELETE($parameters));
+        echo json_encode((new \Pages\Hunts())->DELETE($parameters));
         break;
     default:
-        echo json_encode((new \Pages\Digs())->OTHER());
+        http_response_code(400);
 }
