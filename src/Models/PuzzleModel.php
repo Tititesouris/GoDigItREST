@@ -35,5 +35,25 @@ class PuzzleModel extends AbstractModel
             "longitude" => $this->longitude
         );
     }
-
+    
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function getQRCode()
+    {
+        return $this->QRCode;
+    }
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
 }
