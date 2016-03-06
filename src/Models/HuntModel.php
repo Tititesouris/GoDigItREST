@@ -5,15 +5,11 @@ class HuntModel extends AbstractModel
 {
 
     private $name;
-
     private $QRCode;
-
     private $clues;
-
     private $comments;
-
     private $puzzle;
-
+    
     public function __construct($id, $name, $QRCode, $clues, $comments, $puzzle)
     {
         parent::__construct($id);

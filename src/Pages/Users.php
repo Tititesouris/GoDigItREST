@@ -32,7 +32,8 @@ class Users extends Page
 
     public function PUT($parameters)
     {
-        if (!empty($parameters) && isset($parameters["username"], $parameters["email"], $parameters["password"])) {
+        if (!empty($parameters) && isset($parameters["username"], $parameters["email"], $parameters["password"])) 
+        {
             return UsersTable::setUser($parameters["username"], new UserModel(0, $parameters["username"], $parameters["email"], $parameters["password"]));
         }
         return array("error" => "Invalid parameters");
@@ -40,7 +41,8 @@ class Users extends Page
 
     public function DELETE($parameters)
     {
-        if (!empty($parameters) && isset($parameters["id"])) {
+        if (!empty($parameters) && isset($parameters["id"])) 
+        {
             return UsersTable::removeUser($parameters["id"]);
         }
         return array("error" => "Invalid parameters");
