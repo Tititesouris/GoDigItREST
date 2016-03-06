@@ -8,7 +8,7 @@ class Database
     {
         if (!isset($connection))
         {
-            $connection = new PDO("mysql:host=localhost;dbname=godigit;charset=utf8mb4", "godigit-user", "swordfish");
+            $connection = new PDO("mysql:host=localhost;dbname=godigit;charset=utf8mb4", "root", "");
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return $connection;
