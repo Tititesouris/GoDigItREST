@@ -32,6 +32,7 @@ class Database
     
     public static function exec($sql)
     {
+        echo "Executing ". $sql;
         $db = Database::getConnection();
         $affected = $db->exec($sql);
         return $affected;
