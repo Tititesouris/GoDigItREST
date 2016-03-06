@@ -36,8 +36,8 @@ class UsersTable
 
     public static function setUser($username, UserModel $user)
     {
-        $result = Database::exec("UPDATE users SET name='".$user->getUsername()."',email='".$user->getEmail()."',password_hash='".$user->getPassword()."' WHERE id=".$user->getId());
-        return $result;
+        $result = Database::exec("UPDATE users SET name='".$user->getUsername()."',email='".$user->getEmail()."',password_hash='".$user->getPassword()."' WHERE name='".$username."'");
+        return json_encode($result);
 //         return array("error" => "Not Implemented yet");
     }
 
